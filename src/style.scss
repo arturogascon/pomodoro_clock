@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Dosis:wght@600&family=Gloria+Hallelujah&display=swap');
+body{
+    background-color: #0C090D;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding: .3rem 2.3rem;
+    color: #D8A47F;
+}
+
+#timer-label{
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    color: #C0E6DE;
+    text-align: right;
+}
+
+#time-left{
+    font-size: 6.5rem;
+    font-weight: 800;
+}
+
+#session-container, #break-container{
+    vertical-align: bottom;
+    margin-top: 1.5rem;
+    display: inline-block;
+    height: 10.5rem;
+    box-sizing: border-box;
+}
+
+
+#session-container{
+    margin-right: 1.2rem;
+    margin-left: 0rem;
+    img{
+        width: 65px;
+    }
+}
+
+#break-container{
+    margin-left: 1.2rem;
+
+    img{
+        width: 110px;
+    }
+}
+
+.session, .break{
+    display: inline-block;
+    font-size: 2.3rem;
+}
+
+.img-deco{
+    box-sizing: border-box;
+    height: 75px;
+    margin-top: 1rem;
+}
+
+
+
+
+#session-increment, #break-increment{
+    margin-right: 10px;
+    font-family: 'Dosis', sans-serif;
+}
+
+#session-decrement, #break-decrement{
+    margin-left: 10px;
+    font-family: 'Dosis', sans-serif;
+}
+
+svg{
+    color: #697268;
+    width: 25px;
+}
+
+#session-length, #break-length{
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+#session-label, #break-label{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+#controls{
+    margin-top: 2.2rem;
+
+    &>div{
+        display: inline-block;
+        &:first-child{
+            margin-right: 1.8rem;
+        }
+        &:last-child{
+            vertical-align: -40%;
+            margin-left: 1.8rem;  
+        }
+    }
+
+    img{
+        width: 75px;
+    }
+}
+
+p{
+    margin-top: 5rem;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #697268;
+    
+}
