@@ -20,11 +20,13 @@ class App extends React.Component{
             timerLabel: 'Session',
             timerRunning: false
         }
+        this.alarmBeep = React.createRef();
         this.handlePlayPause = this.handlePlayPause.bind(this);
         this.handleInterval = this.handleInterval.bind(this);
         this.handleIncreaseLength = this.handleIncreaseLength.bind(this);
         this.handleDecreaseLength = this.handleDecreaseLength.bind(this);
         this.handleReset = this.handleReset.bind(this);
+        this.playAlarm = this.playAlarm.bind(this);
     }
 
     handlePlayPause(){
@@ -52,6 +54,7 @@ class App extends React.Component{
                 })
             }
             else if(this.state.currentTimer.getMinutes()===0 && this.state.currentTimer.getSeconds()===0){
+                this.playAlarm();
                 this.setState(state=>{
                     const nextLabel = state.timerLabel === 'Session' ? 'Break' : 'Session'; 
                     const nextLength = nextLabel === 'Session' ? state.sessionLength : state.breakLength; 
@@ -125,6 +128,8 @@ class App extends React.Component{
 
     handleReset(){
         clearInterval(interval);
+        this.alarmBeep.current.pause();
+        this.alarmBeep.current.currentTime = 0;
 
         this.setState({
             currentTimer: new Date(0,0,1,0,25,0),
@@ -135,8 +140,14 @@ class App extends React.Component{
         })
     }
 
+    playAlarm(){
+        this.alarmBeep.current.currentTime = 0;
+        this.alarmBeep.current.volume = 1;
+        this.alarmBeep.current.play();
+    }
+
     render() {
-        let timeLeft= this.state.currentTimer.getHours() === 1 ? '60:00': this.state.currentTimer.toLocaleTimeString().slice(3,8);
+        let timeLeft= this.state.currentTimer.getHours() === 1 ? '60:00': this.state.currentTimer.toLocaleTimeString('en-US').slice(3,8);
         return(
             <div id="react-app">
                 <div id="timer-label">{this.state.timerLabel}</div>
@@ -154,7 +165,13 @@ class App extends React.Component{
                 <div id="controls">
                     <PlayPause handlePlayPause={this.handlePlayPause}/>
                     <Reset handleReset={this.handleReset}/>
-                </div>                
+                </div>
+                <audio 
+                    id="beep"
+                    src="https://raw.githubusercontent.com/arturogascon/pomodoro_clock/master/sounds/alarm.mp3"
+                    ref={this.alarmBeep}
+                />
+
                 <p>
                 Essential Pomodoro Clock<br/>
                 by<br/>

@@ -3,8 +3,14 @@ body{
     background-color: #0C090D;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    padding: .3rem 2.3rem;
+    padding: .5rem 0rem;
     color: #D8A47F;
+}
+
+#react-app{
+    margin: 0 auto;
+    max-width: 414px;
+    
 }
 
 #timer-label{
@@ -13,6 +19,7 @@ body{
     font-weight: 600;
     color: #C0E6DE;
     text-align: right;
+    margin-right: 2rem;
 }
 
 #time-left{
@@ -85,27 +92,37 @@ svg{
 }
 
 #controls{
-    margin-top: 2.2rem;
-
+    margin-top: 2.5rem;
     &>div{
         display: inline-block;
         &:first-child{
             margin-right: 1.8rem;
+            img{
+                width: 75px;
+            }
         }
         &:last-child{
-            vertical-align: -40%;
-            margin-left: 1.8rem;  
+            vertical-align: -10%;
+            margin-left: 2.1rem;
+            img{
+                width: 70px;   
+            }  
         }
-    }
-
-    img{
-        width: 75px;
     }
 }
 
-p{
-    margin-top: 5rem;
+#react-app > p{
+    margin-top: 4rem;
     font-family: 'Gloria Hallelujah', cursive;
     color: #697268;
     
+}
+
+#icons{
+    font-size: .8rem;
+    margin-top: 5.2rem;
+    color: #697268;
+    a{
+        color: #697268;;
+    }
 }
